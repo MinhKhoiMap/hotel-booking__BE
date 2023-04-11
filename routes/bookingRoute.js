@@ -45,7 +45,7 @@ bookingRoute.post("", (req, res) => {
       console.log(err, "o booking route");
       res
         .status(StatusCodes.SERVICE_UNAVAILABLE)
-        .json({ message: "Failed to booking rooms" });
+        .json({ message: "Failed to booking rooms", err });
     });
 });
 
