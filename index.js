@@ -37,11 +37,11 @@ app.use("/api/booking", bookingRoute);
 // Start the server
 app.listen(3002, () => {
   console.log("App is listening");
-  // db.connect()
-  //   .then(() => {
-  //     console.log("Database is connected");
-  //   })
-  //   .catch((err) => {
-  //     throw err;
-  //   });
+  db.connect()
+    .then(() => {
+      console.log("Database is connected");
+    })
+    .catch((err) => {
+      throw err;
+    });
 });
