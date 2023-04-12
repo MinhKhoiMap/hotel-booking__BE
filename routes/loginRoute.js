@@ -5,7 +5,7 @@ import { StatusCodes } from "http-status-codes";
 import "../middlewares/passport";
 import userModelClass from "../DAL/models/userModels";
 
-const domain = "";
+const redirectURL = "https://hotelbooking-nhom2.netlify.app";
 
 const loginRoute = Router();
 const userModel = new userModelClass();
@@ -117,16 +117,12 @@ loginRoute.get(
         { expiresIn: "30 days" }
       );
       console.log("token nay ong gia", token);
-      res.redirect(
-        `http://localhost:3000${domain && "/" + domain}?token=${token}`
-      );
+      res.redirect(`${redirectURL}${domain && "/" + domain}?token=${token}`);
     } else {
       res.redirect(
-        `http://localhost:3000${
-          domain && "/" + domain
-        }/accounts/sign-up?email=${req.user.profile.email}&avatar=${
-          req.user.profile.avatar
-        }`
+        `${redirectURL}${domain && "/" + domain}/accounts/sign-up?email=${
+          req.user.profile.email
+        }&avatar=${req.user.profile.avatar}`
       );
     }
   }
