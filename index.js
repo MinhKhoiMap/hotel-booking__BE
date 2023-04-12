@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import expressSession from "express-session";
 import passport from "passport";
+// import dotenv from "dotenv";
 import DatabaseClass from "./DAL/database";
 import loginRoute from "./routes/loginRoute";
 import createAccountRoute from "./routes/createAccountRoute";
@@ -42,6 +43,6 @@ app.listen(3002, () => {
       console.log("Database is connected");
     })
     .catch((err) => {
-      throw err;
+      console.log(err);
     });
 });

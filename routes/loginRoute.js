@@ -109,13 +109,14 @@ loginRoute.get(
       console.log(req.user, "user ở route login already");
       const token = jwt.sign(
         {
-          name: req.user.name,
-          email: req.user.email,
-          phoneNumber: req.user.phoneNumber,
+          name: req.user.data.name,
+          email: req.user.data.email,
+          phoneNumber: req.user.data.phoneNumber,
         },
         "hotelbooking",
         { expiresIn: "30 days" }
       );
+      console.log("token nay ong gia", token);
       res.redirect(
         `http://localhost:3000${domain && "/" + domain}?token=${token}`
       );
