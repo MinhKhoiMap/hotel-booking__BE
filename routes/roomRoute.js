@@ -6,9 +6,11 @@ const roomRoute = Router();
 const roomModel = new roomModelClass();
 
 roomRoute.get("", (req, res) => {
+  console.log("first");
   roomModel
     .getAllRooms()
     .then((rooms) => {
+      // console.log(rooms);
       res.status(StatusCodes.OK).json(rooms);
     })
     .catch((err) => {

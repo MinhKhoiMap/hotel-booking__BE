@@ -14,10 +14,12 @@ loginRoute.get("", (req, res) => {
   const token = req.headers.authorization;
   let payload = jwt.verify(token, "hotelbooking");
 
+  console.log("wtf is that");
+
   userModel
     .getUserByEmail(payload.email)
     .then((data) => {
-      //   console.log(data, "loginRoute line:19");
+      console.log(data, "loginRoute line:19");
       if (data.length > 0) res.status(StatusCodes.OK).json(data);
       else {
         res.status(StatusCodes.NOT_FOUND).json({ message: "User not found" });
