@@ -5,6 +5,7 @@ import { StatusCodes } from "http-status-codes";
 import "../middlewares/passport";
 import userModelClass from "../DAL/models/userModels";
 
+// const redirectURL = "http://localhost:3000";
 const redirectURL = "https://hotelbooking-nhom2.netlify.app";
 
 const loginRoute = Router();
@@ -120,7 +121,7 @@ loginRoute.get(
       res.redirect(`${redirectURL}?token=${token}`);
     } else {
       res.redirect(
-        `${redirectURL}/accounts/sign-up?email=${req.user.profile.email}&avatar=${req.user.profile.avatar}`
+        `${redirectURL}?email=${req.user.profile.email}&avatar=${req.user.profile.avatar}`
       );
     }
   }
